@@ -1,7 +1,9 @@
-// tailwind.config.js
 module.exports = {
-    purge: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
-    darkMode: false, // or 'media' or 'class'
+    content: [
+      "./resources/**/*.{js,vue,php}",
+      "./resources/views/**/*.blade.php",
+    ],
+    darkMode: false,
     theme: {
       extend: {},
     },
