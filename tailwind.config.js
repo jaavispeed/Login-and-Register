@@ -1,13 +1,9 @@
 module.exports = {
     content: [
-      "./resources/**/*.{js,vue,php}",
-      "./resources/views/**/*.blade.php",
+      './resources/views/**/*.blade.php',
+      './resources/js/**/*.vue',
     ],
-    darkMode: false,
     theme: {
-      extend: {},
-    },
-    variants: {
       extend: {},
     },
     plugins: [],
