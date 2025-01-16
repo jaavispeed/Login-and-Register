@@ -1,9 +1,5 @@
 <template>
-  <div
-    class="flex flex-col items-center justify-center min-h-screen px-4 bg-[#eeeeee] relative overflow-hidden"
-  >
   <div class="flex flex-col items-center justify-center min-h-screen px-4 bg-[#eeeeee] relative overflow-hidden">
-    <!-- Mensaje de bienvenida -->
     <div class="text-center mb-8 z-10">
       <h1 class="text-4xl font-bold text-[#1d1616]">Bienvenid@</h1>
       <p class="text-lg mt-4">
@@ -76,7 +72,7 @@
       </svg>
     </div>
 
-    <!-- Botones de inicio de sesión y registro) -->
+    <!-- Botones de inicio de sesión y registro -->
     <div
       class="flex flex-col sm:flex-row sm:space-x-4 sm:space-y-0 space-y-4 w-full max-w-lg justify-center items-center z-10"
     >
@@ -124,7 +120,7 @@
       </button>
     </div>
 
-    <!--  -->
+    <!-- Wave -->
     <div class="absolute bottom-0 w-full">
       <svg
         xmlns="http://www.w3.org/2000/svg"
