@@ -1,9 +1,9 @@
 <template>
   <div
-    class="profile-container flex justify-center items-center min-h-screen bg-white"
+    class="profile-container flex justify-center items-center min-h-screen bg-[#eeeeee] relative"
   >
     <div
-      class="profile-card p-6 bg-white rounded-xl shadow-2xl w-full max-w-lg border-2 border-gray-100"
+      class="profile-card p-6 bg-white rounded-xl shadow-2xl w-full max-w-lg border-2 border-gray-100 z-10"
     >
       <h1 class="text-3xl font-semibold text-center text-gray-800 mb-4">
         Perfil de Usuario
@@ -43,7 +43,7 @@
 
         <button
           @click="logout"
-          class="mt-4 p-3 bg-red-500 text-white rounded-lg flex items-center justify-center space-x-2 hover:bg-red-600 transition duration-200 transform hover:scale-105"
+          class="px-8 py-4 bg-[#8e1616] text-white rounded-lg shadow-lg hover:bg-[#1d1616] focus:outline-none focus:ring-2 focus:ring-[#1d1616] flex items-center justify-center w-full sm:w-auto"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -63,6 +63,20 @@
           <span class="text-sm">Cerrar sesión</span>
         </button>
       </div>
+    </div>
+    <!-- Wave -->
+    <div class="absolute bottom-0 w-full">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 320"
+        class="w-full"
+      >
+        <path
+          fill="#6D2323"
+          fill-opacity="1"
+          d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+        ></path>
+      </svg>
     </div>
   </div>
 </template>
