@@ -1,6 +1,8 @@
 
 <template>
-  <div class="flex flex-col items-center justify-center min-h-screen px-4 bg-[#eeeeee] relative overflow-hidden">
+  <div
+    class="flex flex-col items-center justify-center min-h-screen px-4 bg-[#eeeeee] relative overflow-hidden"
+  >
     <div class="text-center mb-8 z-10">
       <h1 class="text-4xl font-bold text-[#1d1616]">Bienvenid@</h1>
       <p class="text-lg mt-4">
@@ -8,7 +10,6 @@
         para continuar.
       </p>
     </div>
-
 
     <div class="flex items-center space-x-4 mb-8">
       <!-- Icono de Laravel -->
@@ -79,32 +80,30 @@
       class="flex flex-col sm:flex-row sm:space-x-4 sm:space-y-0 space-y-4 w-full max-w-lg justify-center items-center z-10"
     >
       <router-link
-    to="/login"
-    class="px-8 py-4 bg-[#1d1616] text-white rounded-lg shadow-lg hover:bg-[#8e1616] focus:outline-none focus:ring-2 focus:ring-[#8e1616] flex items-center justify-center w-full sm:w-auto"
-  >
-    <!-- Icono de inicio de sesión -->
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke-width="1.5"
-      stroke="currentColor"
-      class="w-5 h-5 mr-2"
-    >
-      <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
-      />
-    </svg>
-    Iniciar Sesión
-  </router-link>
-
-
-
-      <button
+        to="/login"
         class="px-8 py-4 bg-[#1d1616] text-white rounded-lg shadow-lg hover:bg-[#8e1616] focus:outline-none focus:ring-2 focus:ring-[#8e1616] flex items-center justify-center w-full sm:w-auto"
-        @click="goToRegister"
+      >
+        <!-- Icono de inicio de sesión -->
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-5 h-5 mr-2"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
+          />
+        </svg>
+        Iniciar Sesión
+      </router-link>
+
+      <router-link
+        to="/register"
+        class="px-8 py-4 bg-[#1d1616] text-white rounded-lg shadow-lg hover:bg-[#8e1616] focus:outline-none focus:ring-2 focus:ring-[#8e1616] flex items-center justify-center w-full sm:w-auto"
       >
         <!-- Icono de registro -->
         <svg
@@ -122,7 +121,7 @@
           ></path>
         </svg>
         Registrarse
-      </button>
+      </router-link>
     </div>
 
     <!-- Wave -->

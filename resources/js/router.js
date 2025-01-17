@@ -1,18 +1,24 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import LoginPage from './components/LoginPage.vue';  // El componente de la página de login
-import Home from './components/Home.vue';  // El componente de la landing page
+import LoginPage from './components/LoginPage.vue';
+import Home from './components/Home.vue';
+import RegisterPage from './components/RegisterPage.vue';
 
 // Definición de las rutas
 const routes = [
   {
     path: '/',
     name: 'home',
-    component: Home,  // Componente que muestra la landing page
+    component: Home,
   },
   {
     path: '/login',
     name: 'login',
-    component: LoginPage,  // Componente que muestra la página de login
+    component: LoginPage,
+  },
+  {
+    path: '/register',
+    name: 'register',
+    component: RegisterPage,
   }
 ];
 
@@ -22,4 +28,4 @@ const router = createRouter({
   routes,
 });
 
-export default router;  // Exportar el router para ser usado en el app.js
+export default router;
