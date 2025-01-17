@@ -36,8 +36,11 @@
             id="email"
             class="mt-2 px-4 py-2 w-full border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400"
             placeholder="Ingrese su correo"
-            required
+            @input="validateEmail"
           />
+          <p v-if="emailError" class="text-red-500 text-xs mt-1">
+            {{ emailError }}
+          </p>
         </div>
         <!-- Contraseña -->
         <div class="mb-8">
@@ -50,13 +53,21 @@
             id="password"
             class="mt-2 px-4 py-2 w-full border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400"
             placeholder="Ingrese su contraseña"
-            required
+            @input="validatePassword"
           />
+          <p v-if="passwordError" class="text-red-500 text-xs mt-1">
+            {{ passwordError }}
+          </p>
         </div>
         <!-- Botón de inicio de sesión -->
         <button
           type="submit"
-          class="w-full py-3 px-6 bg-[#1d1616] text-white rounded-md hover:bg-[#3b3333] focus:outline-none focus:ring-2 focus:ring-blue-500 flex items-center justify-center gap-2"
+          :class="{
+            'bg-[#1d1616]': isFormValid,
+            'bg-gray-400 cursor-not-allowed': !isFormValid,
+          }"
+          class="w-full py-3 px-6 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 flex items-center justify-center gap-2"
+          :disabled="!isFormValid"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -75,7 +86,6 @@
           Iniciar sesión
         </button>
       </form>
-      <!-- Enlace a registro -->
       <div class="mt-6 text-center">
         <p>
           ¿No tienes una cuenta?
@@ -95,11 +105,57 @@ export default {
     return {
       email: "",
       password: "",
+      emailError: "",
+      passwordError: "",
       user: null,
+      isFormValid: false,
     };
   },
+  mounted() {
+  this.resetForm();
+},
   methods: {
+    validateEmail() {
+      if (!this.email) {
+        this.emailError = "El correo electrónico es requerido.";
+      } else if (!/\S+@\S+\.\S+/.test(this.email)) {
+        this.emailError = "Correo electrónico inválido.";
+      } else {
+        this.emailError = "";
+      }
+      this.validateForm();
+    },
+
+    validatePassword() {
+      if (!this.password) {
+        this.passwordError = "La contraseña es requerida.";
+      } else {
+        this.passwordError = "";
+      }
+      this.validateForm();
+    },
+
+
+    validateForm() {
+      this.isFormValid =
+        !this.emailError && !this.passwordError && this.email && this.password;
+    },
+
+    resetForm() {
+      this.email = "";
+      this.password = "";
+      this.emailError = "";
+      this.passwordError = "";
+      this.isFormValid = false;
+    },
+
     async login() {
+      this.validateEmail();
+
+      if (this.emailError) {
+        return;
+      }
+
       try {
         const response = await axios.post("/login", {
           email: this.email,
@@ -113,12 +169,15 @@ export default {
 
           alert(response.data.message);
           this.$router.push("/profile");
+          this.resetForm();
         } else {
           alert("No se recibieron datos del usuario");
+          this.resetForm();
         }
       } catch (error) {
         console.error(error.response?.data?.error || error);
         alert(error.response?.data?.error || "Error al iniciar sesión");
+        this.resetForm();
       }
     },
   },
