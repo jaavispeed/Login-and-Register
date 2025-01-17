@@ -40,7 +40,7 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
     const user = localStorage.getItem('user');
 
-    if (user && (to.name === 'login' || to.name === 'home')) {
+    if (user && (to.name === 'login' || to.name === 'home' || to.name === 'register' )) {
       next({ name: 'profile' });
     } else if (to.matched.some(record => record.meta.requiresAuth)) {
       if (!user) {
