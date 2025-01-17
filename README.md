@@ -1,7 +1,11 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 ## Sobre el proyecto
-Este proyecto implementa un sistema básico de login, registro y un perfil que muestra los datos del usuario. Las tecnologías utilizadas incluyen Laravel 11, Vue 3, TailwindCSS y SQLite.
+Este proyecto implementa un sistema básico de login, registro y un perfil que muestra los datos del usuario. Las tecnologías utilizadas incluyen:
+- Laravel 11. 
+- Vue 3. 
+- TailwindCSS. 
+- SQLite.
 
 ## Requisitos previos
 Antes de comenzar, asegúrate de tener instaladas las siguientes herramientas:
