@@ -8,14 +8,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Ruta de registro
+// Ruta de Registro
 Route::post('/register', [AuthController::class, 'register']);
+// Ruta de Login
+Route::post('/login', [AuthController::class, 'login']);
+
 
 Route::get('/register', function () {
-    return view('welcome'); // Asegúrate de que esta vista sirva tu aplicación Vue
+    return view('welcome');
 });
-
 Route::get('/login', function () {
-    return view('welcome'); // Asegúrate de que esta vista sirva tu aplicación Vue
+    return view('welcome');
 });
 

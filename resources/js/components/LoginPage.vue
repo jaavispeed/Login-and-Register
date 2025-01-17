@@ -53,3 +53,32 @@
     </div>
   </div>
 </template>
+
+
+<script>
+export default {
+  data() {
+    return {
+      email: '',
+      password: ''
+    };
+  },
+  methods: {
+    async login() {
+      try {
+        const response = await axios.post('/login', {
+          email: this.email,
+          password: this.password
+        });
+
+        // Si el login es exitoso, redirigimos a la página principal o dashboard
+        console.log(response.data.message);  // Mensaje de éxito
+      } catch (error) {
+        // Si el login falla, mostramos el mensaje de error
+        console.error(error.response.data.error);
+        alert(error.response.data.error || 'Error al iniciar sesión');  // Mensaje de error desde el backend
+      }
+    }
+  }
+};
+</script>
