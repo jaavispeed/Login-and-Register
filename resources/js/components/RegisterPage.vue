@@ -33,6 +33,18 @@
             required
           />
         </div>
+        <!-- Email -->
+        <div class="mb-4">
+          <label for="surname" class="block text-sm font-medium text-gray-700">Email</label>
+          <input
+            v-model="surname"
+            type="text"
+            id="surname"
+            class="mt-1 px-4 py-2 w-full border border-gray-300 rounded-md"
+            placeholder="Ingrese su email"
+            required
+          />
+        </div>
         <!-- Teléfono -->
         <div class="mb-4">
           <label for="phone" class="block text-sm font-medium text-gray-700">Teléfono</label>
