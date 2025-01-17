@@ -279,6 +279,8 @@ export default {
           error.response.data &&
           error.response.data.error
         ) {
+                    this.resetForm();
+
           alert(error.response.data.error);
         } else {
           alert("Error al realizar la solicitud");

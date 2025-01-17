@@ -22,6 +22,11 @@ class AuthController extends Controller
                 'password' => 'required|string',
             ]);
 
+            // Verificar si el correo ya existe
+            if (User::where('email', $validated['email'])->exists()) {
+                return response()->json(['error' => 'El correo electrónico ya está registrado.'], 400);
+            }
+
             // Crear el nuevo usuario
             $user = new User();
             $user->name = $validated['name'];
