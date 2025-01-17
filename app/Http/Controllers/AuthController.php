@@ -48,6 +48,11 @@ class AuthController extends Controller
     {
         $credentials = $request->only('email', 'password');
 
+        $user = User::where('email', $credentials['email'])->first();
+        if (!$user) {
+            return response()->json(['error' => 'El correo electrónico no está registrado.'], 404);
+        }
+
         if (Auth::attempt($credentials)) {
             $user = Auth::user();
 
