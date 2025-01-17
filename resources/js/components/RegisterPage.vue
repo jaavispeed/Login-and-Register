@@ -84,7 +84,7 @@
           >
           <input
             v-model="phone"
-            type="text"
+            type="number"
             id="phone"
             class="mt-1 px-4 py-2 w-full border border-gray-300 rounded-md"
             placeholder="911112222"
