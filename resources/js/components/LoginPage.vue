@@ -72,6 +72,7 @@ export default {
         });
 
         // Si el login es exitoso, redirigimos a la página principal o dashboard
+        alert(response.data.message);
         console.log(response.data.message);  // Mensaje de éxito
         this.$router.push('/profile'); //Redirige a la pagina principal
 
