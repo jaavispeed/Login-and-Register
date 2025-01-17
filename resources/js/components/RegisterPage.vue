@@ -23,11 +23,11 @@
         </div>
         <!-- Apellido -->
         <div class="mb-4">
-          <label for="surname" class="block text-sm font-medium text-gray-700">Apellido</label>
+          <label for="lastname" class="block text-sm font-medium text-gray-700">Apellido</label>
           <input
-            v-model="surname"
+            v-model="lastname"
             type="text"
-            id="surname"
+            id="lastname"
             class="mt-1 px-4 py-2 w-full border border-gray-300 rounded-md"
             placeholder="Ingrese su apellido"
             required
@@ -35,11 +35,11 @@
         </div>
         <!-- Email -->
         <div class="mb-4">
-          <label for="surname" class="block text-sm font-medium text-gray-700">Email</label>
+          <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
           <input
-            v-model="surname"
+            v-model="email"
             type="text"
-            id="surname"
+            id="email"
             class="mt-1 px-4 py-2 w-full border border-gray-300 rounded-md"
             placeholder="Ingrese su email"
             required
@@ -86,3 +86,44 @@
     </div>
   </div>
 </template>
+
+
+
+<script>
+export default {
+  data() {
+    return {
+      name: '',
+      lastname: '',
+      email: '',
+      phone: '',
+      password: '',
+    };
+  },
+  methods: {
+  async register() {
+    try {
+      // Hacer la solicitud a la API
+      const response = await axios.post('/register', {
+        name: this.name,
+        lastname: this.lastname,
+        email: this.email,
+        phone: this.phone,
+        password: this.password
+      });
+      alert(response.data.message);
+
+      this.$router.push('/'); //Redirige a la pagina principal
+
+    } catch (error) {
+      //Muestra el mensaje de error
+      if (error.response && error.response.data && error.response.data.error) {
+        alert(error.response.data.error);
+      } else {
+        alert('Error al realizar la solicitud');
+      }
+    }
+  }
+}
+};
+</script>
