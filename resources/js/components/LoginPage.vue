@@ -73,6 +73,8 @@ export default {
 
         // Si el login es exitoso, redirigimos a la página principal o dashboard
         console.log(response.data.message);  // Mensaje de éxito
+        this.$router.push('/profile'); //Redirige a la pagina principal
+
       } catch (error) {
         // Si el login falla, mostramos el mensaje de error
         console.error(error.response.data.error);
