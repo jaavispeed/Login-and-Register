@@ -60,7 +60,8 @@ export default {
   data() {
     return {
       email: '',
-      password: ''
+      password: '',
+      user: null,
     };
   },
   methods: {
@@ -71,17 +72,22 @@ export default {
           password: this.password
         });
 
-        // Si el login es exitoso, redirigimos a la página principal o dashboard
-        alert(response.data.message);
-        console.log(response.data.message);  // Mensaje de éxito
-        this.$router.push('/profile'); //Redirige a la pagina principal
+
+        if (response.data.user) {
+          this.user = response.data.user;
+          console.log(this.user);
+          alert(response.data.message);
+          this.$router.push('/profile');
+        } else {
+          alert('No se recibieron datos del usuario');
+        }
 
       } catch (error) {
-        // Si el login falla, mostramos el mensaje de error
-        console.error(error.response.data.error);
-        alert(error.response.data.error || 'Error al iniciar sesión');  // Mensaje de error desde el backend
+        console.error(error.response?.data?.error || error);
+        alert(error.response?.data?.error || 'Error al iniciar sesión');
       }
     }
   }
 };
 </script>
+
