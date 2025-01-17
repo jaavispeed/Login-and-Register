@@ -108,12 +108,9 @@ export default {
 
         if (response.data.user) {
           this.user = response.data.user;
-          const cleanUser = JSON.parse(JSON.stringify(response.data.user));
-          console.log(cleanUser);
 
-          // Guardar los datos del usuario en tu estado
-          this.user = cleanUser;
-          localStorage.setItem("user", JSON.stringify(cleanUser));
+          localStorage.setItem("user", JSON.stringify(this.user));
+
           alert(response.data.message);
           this.$router.push("/profile");
         } else {
@@ -127,4 +124,5 @@ export default {
   },
 };
 </script>
+
 

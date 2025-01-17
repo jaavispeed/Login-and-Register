@@ -25,14 +25,33 @@ const routes = [
     path: '/profile',
     name: 'profile',
     component: ProfilePage,
+    meta: {
+      requiresAuth: true
+    }
   },
-
 ];
 
-// Crear el router
+
 const router = createRouter({
   history: createWebHistory(),
   routes,
 });
+
+router.beforeEach((to, from, next) => {
+    const user = localStorage.getItem('user');
+
+    if (user && (to.name === 'login' || to.name === 'home')) {
+      next({ name: 'profile' });
+    } else if (to.matched.some(record => record.meta.requiresAuth)) {
+      if (!user) {
+        next({ name: '' });
+      } else {
+        next();
+      }
+    } else {
+      next();
+    }
+  });
+
 
 export default router;

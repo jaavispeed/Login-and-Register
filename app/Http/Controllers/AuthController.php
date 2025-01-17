@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Hash;  // Agregar esta línea
+use Illuminate\Support\Facades\Auth; // Importa el facade de Auth
+
 
 
 use Illuminate\Http\Request;
@@ -29,20 +30,17 @@ class AuthController extends Controller
     {
         $credentials = $request->only('email', 'password');
 
-        // Buscamos al usuario con el email
-        $user = User::where('email', $credentials['email'])->first();
+        if (Auth::attempt($credentials)) {
+            $user = Auth::user();
 
-        if ($user && Hash::check($credentials['password'], $user->password)) {
-            // Si la contraseña coincide con la almacenada en la base de datos
             return response()->json([
                 'message' => 'Login exitoso',
                 'user' => $user
             ], 200);
         } else {
-            // Si la contraseña no coincide
+            // Si la autenticación falla
             return response()->json(['error' => 'No autorizado'], 401);
         }
     }
-
 }
 
