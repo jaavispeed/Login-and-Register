@@ -11,7 +11,6 @@ Este proyecto implementa un sistema básico de login, registro y un perfil que m
 - Protección de rutas.
 - Validación de formularios.
 - Manejo de errores
-- Paleta de colores personalizada.
 ## Requisitos previos
 Antes de comenzar, asegúrate de tener instaladas las siguientes herramientas:
 
