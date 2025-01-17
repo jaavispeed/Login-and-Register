@@ -34,7 +34,7 @@ Descarga Node.js desde nodejs.org
 5. npm install
 
 ## Por ultimo
-Tienes que tener corriendo los dos a la misma vez.
+Para ejecutar el proyecto, necesitas tener ambos servidores corriendo simultáneamente:
 
 1. npm run dev
 2. php artisan serve
