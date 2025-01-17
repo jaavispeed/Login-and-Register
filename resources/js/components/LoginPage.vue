@@ -105,14 +105,14 @@ export default {
     return {
       email: "",
       password: "",
-      emailError: "",
-      passwordError: "",
+      emailError: "El correo electrónico es requerido",
+      passwordError: "La contraseña es requerida",
       user: null,
       isFormValid: false,
     };
   },
   mounted() {
-  this.resetForm();
+  this.validateForm();
 },
   methods: {
     validateEmail() {

@@ -87,7 +87,7 @@
             type="text"
             id="phone"
             class="mt-1 px-4 py-2 w-full border border-gray-300 rounded-md"
-            placeholder="Ingrese su teléfono"
+            placeholder="911112222"
             @input="validatePhone"
             required
           />
@@ -244,6 +244,21 @@ export default {
         this.password;
     },
 
+    // Método para resetear el formulario
+    resetForm() {
+      this.name = "";
+      this.lastname = "";
+      this.email = "";
+      this.phone = "";
+      this.password = "";
+      this.nameError = "";
+      this.lastnameError = "";
+      this.emailError = "";
+      this.phoneError = "";
+      this.passwordError = "";
+      this.isFormValid = false;
+    },
+
     async register() {
       try {
         const response = await axios.post("/register", {
@@ -256,6 +271,7 @@ export default {
         alert(response.data.message);
 
         this.$router.push("/");
+        this.resetForm();
       } catch (error) {
         //Muestra el mensaje de error
         if (
