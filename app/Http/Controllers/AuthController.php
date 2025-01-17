@@ -61,8 +61,7 @@ class AuthController extends Controller
                 'user' => $user
             ], 200);
         } else {
-            // Si la autenticación falla
-            return response()->json(['error' => 'No autorizado'], 401);
+            return response()->json(['error' => 'Credenciales incorrectas.'], 401);
         }
     }
 }
